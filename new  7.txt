@@ -25,7 +25,12 @@ int licz;
 cout<<"Podaj liczbe : ";
 cin>>licz;
 
-if (pierwsza(licz)==1) {cout<<"Liczba jest pierwsza.";}else
-{								 cout<<"Liczba nie jest pierwsza.";}
-
+if (pierwsza(licz)==1) 
+{
+cout<<"Liczba jest pierwsza.";
+}
+else
+	{								
+ 		cout<<"Liczba nie jest pierwsza.";
+	}
 }
