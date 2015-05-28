@@ -5,7 +5,7 @@
 
 
 
-typedef struct osoba rec;
+typedef struct osoba record;
 rec* create();
 void show(rec* root);
 void insert(rec *root, rec *nowy);
