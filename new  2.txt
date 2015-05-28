@@ -1,0 +1,39 @@
+void max(rec* wezel)
+{
+	if(wezel->left==NULL)
+	{
+		show(wezel);
+		return;
+	}
+	else
+	{
+		max(wezel->left);
+	}
+}
+
+int wysokosc(rec *wezel)
+{
+	if(wezel==NULL)
+	{
+		return 0;
+	}
+	return wieksza(wysokosc(wezel->right),wysokosc(wezel->left))+1;
+}
+
+int wieksza( int a, int b )
+{
+    if(a<b)return b;
+    if(a>=b)return a;
+}
+
+void wypisz(rec *wezel)
+{
+	if(wezel==NULL)
+	{
+		return;
+	}
+	wypisz(wezel->right);
+	show(wezel);
+	wypisz(wezel->left);
+	return;
+}
