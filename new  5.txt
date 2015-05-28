@@ -1,0 +1,32 @@
+rec* create()
+{
+	rec* wezel=malloc(sizeof(rec));
+	printf("podaj imie: ");
+	getchar();
+	fgets(wezel->imie,ROZ,stdin);
+	printf("podaj nazwisko: ");
+	fgets(wezel->nazw,ROZ,stdin);
+	printf("podaj nr komorkowy: ");
+	scanf("%d",&wezel->nr1);
+	printf("podaj nr domowy: ");
+	scanf("%d",&wezel->nr2);
+	wezel->left=NULL;
+	wezel->right=NULL;
+	return wezel;	
+}
+
+void show(rec* wezel)
+{
+	printf("--------------------------------\n");
+	printf("imie i nazwisko: \n%s%snumery: %d %d\n",wezel->imie,wezel->nazw,wezel->nr1,wezel->nr2);
+	printf("---------------------------------\n");
+}
+struct osoba
+{
+	char imie[ROZ];
+	char nazw[ROZ];
+	int nr1;
+	int nr2;
+	struct osoba *left;
+	struct osoba *right; 
+};
