@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define ROZ 20
+
+
+
+typedef struct osoba rec;
+rec* create();
+void show(rec* root);
+void insert(rec *root, rec *nowy);
+int zlicz(rec *root);
+void inorder(rec* root,char *napis);
+char napis[ROZ];
+void max(rec* wezel);
+void mini(rec* wezel);
+int wysokosc(rec *wezel);
+int wieksza( int a, int b );
+void wypisz(rec *wezel);
+
+int main(int argc, char *argv[]) 
+{
+	char napis[ROZ];
+	rec *root=NULL;
+	rec *new_rec;
+	int licznik=0;
+	int k=0,ilosc;
+	int wys;
+	do
+	{
+		printf("1- dodaj wpis\n2 - pokaz wpis\n3 - zlicz wezly\n4 - znajdz minimum\n5 - znajdz maksimium\n6 - zbadaj wyskosc\n7 - wypisz wszystko\n8 - zakoncz\n");
+		scanf("%d",&k);
+		switch(k)
+		{
+		
+		case 1: 
+			{
+				if(licznik==0)
+				{
+					root=create();
+					licznik++;
+					show(root);
+				}
+				else
+				{
+					new_rec=create();
+					insert(root,new_rec);
+				}
+				break;
+			}
+		case 2:
+			{
+				printf("podaj szukane nazwisko: ");
+				getchar();
+				fgets(napis,ROZ,stdin);
+				inorder(root,napis);
+				break;
+			}
+		case 3:
+			{
+				ilosc=zlicz(root);
+				printf("ilosc wezlow: %d\n",ilosc);
+				break;
+			}
+		case 4:
+			{
+				mini(root);
+				break;	
+			}	
+		case 5:
+			{
+				max(root);
+				break;	
+			}
+		case 6:
+			{
+				wys=wysokosc(root);
+				printf(" wysokosc drzewa: %d\n",wys);
+				break;
+			}
+		case 7:
+			{
+				wypisz(root);
+				break;
+			}	
+		}
+	}while(k!=8);
+	return 0;
+}
+
+
