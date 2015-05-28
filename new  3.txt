@@ -1,0 +1,67 @@
+void insert(rec* root, rec* nowy)
+{
+	if(strcmp(root->nazw,nowy->nazw)>=0)
+	{
+		if(root->right==NULL) 
+		{
+			root->right=malloc(sizeof(rec));
+			root->right=nowy;
+			return;
+		}	
+		insert(root->right,nowy);
+	}
+	if(strcmp(root->nazw,nowy->nazw)<0)
+	{
+		if(root->left==NULL) 
+		{
+			root->left=malloc(sizeof(rec));
+			root->left=nowy;
+			return;
+		}
+		insert(root->left,nowy);
+	}
+} 
+int zlicz(rec *root)
+{
+	if(root==NULL) return 0;
+	if(root->right==NULL && root->left==NULL)
+	{
+		return 0;
+	}
+	else
+	{  
+		return zlicz(root->right)+zlicz(root->left)+1;	
+	}
+}
+
+void inorder(rec* root,char *napis)
+{
+	rec* temp;
+	temp=root;
+	if(strcmp(temp->nazw,napis)==0)
+	{
+		show(temp);
+		return; 
+	}
+	if(strcmp(temp->nazw,napis)>0)
+	{
+		inorder(temp->right,napis);
+	}	
+	if(strcmp(temp->nazw,napis)<0)
+	{
+		inorder(temp->left,napis);
+	}
+}
+
+void mini(rec* wezel)
+{
+	if(wezel->right==NULL)
+	{
+		show(wezel);
+		return;
+	}
+	else
+	{
+		mini(wezel->right);
+	}
+}
