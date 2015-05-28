@@ -1,4 +1,4 @@
-#include<iostream.h>
+#includo<iostream.h>//Tutaj wprowadzilem komentarz i zmienilem literke
 #include<math.h>
 
 //funkcja zwraca wartosc 1 gdy liczba jest pierwsza a 0 gdy nie jest.
